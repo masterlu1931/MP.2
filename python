@@ -1,0 +1,36 @@
+import math
+
+
+def circle(ax,ay,bx,by,cx,cy):
+    
+    abx = ax - bx
+    acx = ax - ax
+
+    aby = ay - by
+    acy = ay - ay
+
+    cay = cy - ay
+    bay = by - ay
+
+    cax = cx - ax
+    bax = bx - ax
+
+    facx = (ax)**2 - (cx)**2
+    facy = (ay)**2 - (cy)**2
+    fbax = (bx)**2 - (ax)**2
+    fbay = (by)**2 - (ay)**2
+
+    D = (((facx)*(abx)+(facy)*(abx)+(fbax)*(acx)+(fbay)*(acx))/(2*((cay)*(abx)-(bay)*(acx))))             
+    E = (((facx)*(aby)+(facy)*(aby)+(fbax)*(acy)+(fbay)*(acy))/(2*((cax)*(aby)-(bax)*(acy)))) 
+    F = -(ax)**2 - (ay)**2 - 2 * E * ax - 2 * D * (ay)
+
+    h = -E
+    k = -D
+
+    rSqr = h * h + k * k - F
+    r = round(math.sqrt(rSqr), 5)
+    c=(h,k)
+    v=[D,E,F]
+    print('\nThe center of the circle is ', c)
+    print('\nThe radius of the circle is ', r)
+    print('\nThe vector [D,E,F] is ', v)
